@@ -17,3 +17,5 @@ public class Solution {
         return root;
     }
 }
+time complexity: O(n)
+space complexity:O(1)

@@ -12,12 +12,16 @@ public class Solution {
         return ans;
     }
 }
+time complexity:O(logn)
+space complexity:O(1)
+
 recursion:
 public class Solution {
     public int getSum(int a, int b) {
        return b == 0 ? a^b : getSum(a^b,(a&b)<<1);
     }
 }
+time and space complexity same as iteration
 思路：
 如果a&b==0的时候,说明a^b=a+b,比如a=2它的二进制位10,b=1它的二进制位01,a^b=a+b=11=3
 如果a&b!=0的时候,说明a和b有相同的为需要进位在把值加给a^b,所以需要<<1来进位,如果进位后

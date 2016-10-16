@@ -11,17 +11,17 @@ public static int rob(int[] nums) {
 time complexity:O(2^n)
 
 dp:
-public static int rob(int[] nums) {
-  if(nums.length == 0) return 0;
-  if(nums.length == 1) return nums[0];
-  int pre1 = nums[0],pre2 = Math.max(nums[0],nums[1]);
-  int cur = pre2;
-  for(int i = 2; i< nums.length; i++){
-      cur = Math.max(nums[i] + pre1,pre2);
-      pre1 = pre2;
-      pre2 = cur;
+public class Solution {
+  public static int rob(int[] nums) {
+    if(nums == null) return 0;
+    int pre1 = 0,pre2 = 0;
+    for(int i = 0; i < nums.length; i++){
+        int cur = Math.max(pre2,pre1+nums[i]);
+        pre1 = pre2;
+        pre2 = cur;
+    }
+    return pre2;
   }
-  return cur;
 }
 
 time complexity:O(n)

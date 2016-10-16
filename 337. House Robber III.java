@@ -1,16 +1,13 @@
 public class Solution {
     public int rob(TreeNode root) {
         if(root == null) return 0;
-        int leftChildSum = 0,rightChildSum = 0,leftSum = 0,rightSum = 0;
-        if(root.left != null){
-            leftChildSum = rob(root.left.left)+rob(root.left.right);
-        }
-        if(root.right != null){
-            rightChildSum = rob(root.right.left)+rob(root.right.right);
-        }
-        leftSum = rob(root.left);
-        rightSum = rob(root.right);
-        return Math.max(root.val+leftChildSum+rightChildSum,leftSum+rightSum);
+        int sum1 = root.val,sum2 = 0;
+        if(root.left != null)
+            sum1 += rob(root.left.right)+rob(root.left.left);
+        if(root.right != null)
+            sum1 += rob(root.right.left)+rob(root.right.right);
+        sum2 = rob(root.left)+rob(root.right);
+        return Math.max(sum1,sum2);
     } 
 }
 time complexity:O(n)
